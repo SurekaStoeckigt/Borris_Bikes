@@ -1,0 +1,5 @@
+Error type: NameError (uninitialised constant)
+File path of error: /Users/student/.rvm/rubies/ruby-2.6.0/bin/irb:23:in `<main>'
+Line number of error: 1
+What error means: object is undefined since class is undefined
+One way to fix error: define class DockingStation in order to create class object

@@ -1,0 +1,7 @@
+nouns : person, bike, docking station.
+verbs: use, like, release, see, working, is.
+
+Objects           Messages
+person            use a bike, see if bike is good
+docking station   release a bike
+bike              is working
