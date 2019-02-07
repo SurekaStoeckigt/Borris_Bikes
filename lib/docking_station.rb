@@ -1,8 +1,16 @@
 class DockingStation
-
+attr_reader :bike  #(bike = @bike)
   def release_bike
-    #bike = Bike.new
+    Bike.new #returning infinite bikes - creating instance of Bike everytime release_bike is called
   end
+
+  def dock(bike)
+   @bike = bike
+  end
+
+  #def bike
+  #  @bike # this is an attribute - read the @bike attribute on an instance
+  #end
 
 end
 
