@@ -19,8 +19,8 @@ end
 it 'raises error if docking station contains bike' do
 
 docking_station = DockingStation.new
-bike = Bike.new
-docking_station.dock(bike)
+
+20.times {docking_station.dock(Bike.new)}
 bike2 = Bike.new
 
 expect {docking_station.dock(bike2)}.to raise_error("DockingStationIsFull")
@@ -38,7 +38,7 @@ end
 
 it 'responds to bikes' do
 docking_station = DockingStation.new
-  expect(docking_station).to respond_to(:bike)
+  expect(docking_station).to respond_to(:bikes)
 end
 
 #it 'responds to dock' do
@@ -71,14 +71,14 @@ end
 it 'docks something' do
   bike = Bike.new
   docking_station = DockingStation.new
-  expect(docking_station.dock(bike)).to eq bike
+  expect(docking_station.dock(bike)).to include bike
 end
 
 it 'returns docked bikes' do
   bike = Bike.new
   docking_station = DockingStation.new
   docking_station.dock(bike) #have to dock bike before we can see it
-  expect(docking_station.bike).to eq bike
+  expect(docking_station.bikes).to include bike
 end
 
 end

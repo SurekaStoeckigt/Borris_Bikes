@@ -1,19 +1,23 @@
 class DockingStation
-attr_reader :bike  #(bike = @bike)
+attr_reader :bikes  #(bike = @bike)
+
+  def initialize
+    @bikes = []
+  end
 
   def release_bike
 
-    if @bike == nil
-      fail "BikeNotAvailable"
-    else
+    #if @bikes.count == 0
+      fail "BikeNotAvailable" unless @bikes.count !=0
+    #else
       Bike.new #returning infinite bikes - creating instance of Bike everytime release_bike is called
-    end
+    
   end
 
   def dock(bike)
 
-   fail "DockingStationIsFull" unless @bike == nil
-   @bike = bike 
+   fail "DockingStationIsFull" unless @bikes.count < 20
+   @bikes << bike
   # if @bike != nil
   #   fail "DockingStationIsFull" # fail "DockingStationIsFull" unless @bike == nil
   # else
