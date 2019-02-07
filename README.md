@@ -43,4 +43,18 @@ To complete this challenge, you will need to:
  Use the Ruby Documentation to find out what the error means
  Suggest one way of solving the error.
 
-## Learning Objectives Step 5  
+## Learning Objectives Step 5
+
+Learning Objectives covered
+
+Define RSpec as a testing framework
+Create a spec file
+Describe an Object using a specification
+Set up a Unit Test
+To complete this challenge, you will need to:
+
+ Initialize RSpec within your project
+ Create a new spec file for your DockingStation object
+ Set up the spec file to describe a DockingStation
+ Run RSpec from the Command Line
+ Explain to your pair partner the difference between this error and the error you saw before.
