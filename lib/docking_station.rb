@@ -1,7 +1,13 @@
 class DockingStation
 attr_reader :bike  #(bike = @bike)
+
   def release_bike
-    Bike.new #returning infinite bikes - creating instance of Bike everytime release_bike is called
+
+    if @bike == nil
+      fail "BikeNotAvailable"
+    else
+      Bike.new #returning infinite bikes - creating instance of Bike everytime release_bike is called
+    end 
   end
 
   def dock(bike)

@@ -1,0 +1,85 @@
+TDD
+
+1. why do we TDD: to follow specifications/requirements
+                  avoid unnecessary
+                  avoid compounded errors
+                  provides stability for refactoring
+                  TDD is writing tests before writing code and passing tests by writing code
+                  displays plain English for test and check all features are present
+                  communication with clients/users/support
+                  helps you code - map to where you want to get
+
+2. describe process of TDD: read and understand user stories/requirement
+                            (write feature test and then unit test) write tests to reflect user story(in any order)
+                            run and fail test because there is no code (stage red) to find kind or errors (eg. rspec syntax) and fix possible syntax errors
+                            write the code to pass test / fix errors by following errors
+                            - and write the simplest code that will pass the test
+                            run the test (green) if not green go back and commit
+                            commit
+                            refactor
+
+3. apply TDD to simple program:
+--code--
+create TDD folder
+touch README.md: "As a geometry student so that I can easily calculate things I want to know the area of a rectangle"
+
+write test:
+1. init rspec (rspec --init)
+2. write feature test in irb
+3. check if code exists and worked
+4. irb: rectangle = Rectangle.new(5,5) => area that is an integer
+5. irb: rectangle.area = 25
+6. irb: exit
+7. write unit test (rspec test) to reproduce error in feature test
+8. touch spec/rectangle_spec.rb
+
+ require 'rectangle'
+
+ describe Rectangle do
+
+
+
+ end
+
+ 9. rspec
+10. fix code to pass test
+ mkdir lib
+ touch lib/rectangle.rb
+13. rspec
+14. open rectangle.rb
+    class Rectangle
+    end
+15. commit
+17. paste unit test in irb
+18. write unit test to check that it accepts two arguments
+19. open rectangle_spec.rb
+ it 'is created with width and length' do
+ end
+20. rspec
+21. open rectangle_spec.rb
+ expect(subject).to_respond to :area.with(2)arguments
+22. open rectangle_spec.rb
+ Rectangle.new(10,5)
+  expect(Rectangle).to respond_to(:initialize).with(2).arguments
+23. open rectangle.rb
+24. commit
+25. go back irb and run feature tests
+26. open rectangle_spec.rb
+  it 'responds to area' do
+    rectangle = Rectangle.new(10,5)
+    expect(rectangle).to respond_to(:area)
+  end
+27. rspec
+28. open rectangle.rb
+ def area
+ end
+29. run test
+30. commit
+31. run feature test in irb
+32. open rectangle_spec.rb for another unit test
+33. it 'calculate area' do
+    expect(rectangle.area).to eq 50
+    end
+34. open rectangle.rb
+    50
+35. 

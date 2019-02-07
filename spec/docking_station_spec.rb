@@ -6,11 +6,24 @@ attr_reader :bike
 
 it {is_expected.to respond_to :release_bike }
 
+it 'raises error if bike is not available' do
+ #arrange
+ docking_station = DockingStation.new
+ #act
+
+ #assert
+  expect {docking_station.release_bike}.to raise_error("BikeNotAvailable")
+#code block 
+end
+## feature test
 it 'gets a bike and checks if it is working' do
 station = DockingStation.new
-released_bike = station.release_bike
+bike = Bike.new
+station.dock(bike)
+
+station.release_bike
 #expect(released_bike.working?).to eq(true)
-expect(released_bike).to be_working
+expect(station.release_bike).to be_working
 end
 
 it 'responds to bikes' do
@@ -58,14 +71,14 @@ it 'returns docked bikes' do
   expect(docking_station.bike).to eq bike
 end
 
+end
 #it 'responds to availabe method' do
 #bike = Bike.new
 #docking_station = DockingStation.new
 #docking_station.dock(bike)
 #expect(docking_station.bike).to respond_to(:available)
 #end
-expect {docking_station.release_bike}.to raise_error(Error: BikeNotAvailable)
-## feature test
+
 # bike = Bike.new
 # docking_station = DockingStation.new
 # bike.working? => true
