@@ -20,7 +20,7 @@ it 'raises error if docking station contains bike' do
 
 docking_station = DockingStation.new
 
-20.times {docking_station.dock(Bike.new)}
+DockingStation::DEFAULT_CAPACITY.times {docking_station.dock(Bike.new)}
 bike2 = Bike.new
 
 expect {docking_station.dock(bike2)}.to raise_error("DockingStationIsFull")
