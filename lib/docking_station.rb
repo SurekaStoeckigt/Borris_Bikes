@@ -7,12 +7,19 @@ attr_reader :bike  #(bike = @bike)
       fail "BikeNotAvailable"
     else
       Bike.new #returning infinite bikes - creating instance of Bike everytime release_bike is called
-    end 
+    end
   end
 
   def dock(bike)
-   @bike = bike
-  end
+
+   fail "DockingStationIsFull" unless @bike == nil
+   @bike = bike 
+  # if @bike != nil
+  #   fail "DockingStationIsFull" # fail "DockingStationIsFull" unless @bike == nil
+  # else
+  # @bike = bike
+  #end
+ end
 
   #def bike
   #  @bike # this is an attribute - read the @bike attribute on an instance

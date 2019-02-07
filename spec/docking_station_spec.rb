@@ -13,7 +13,17 @@ it 'raises error if bike is not available' do
 
  #assert
   expect {docking_station.release_bike}.to raise_error("BikeNotAvailable")
-#code block 
+#code block
+end
+
+it 'raises error if docking station contains bike' do
+
+docking_station = DockingStation.new
+bike = Bike.new
+docking_station.dock(bike)
+bike2 = Bike.new
+
+expect {docking_station.dock(bike2)}.to raise_error("DockingStationIsFull")
 end
 ## feature test
 it 'gets a bike and checks if it is working' do
