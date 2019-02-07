@@ -8,15 +8,16 @@ attr_reader :bikes  #(bike = @bike)
   def release_bike
 
     #if @bikes.count == 0
-      fail "BikeNotAvailable" unless @bikes.count !=0
+      fail "BikeNotAvailable" if empty?
     #else
-      Bike.new #returning infinite bikes - creating instance of Bike everytime release_bike is called
-    
+      @bikes.pop #returning infinite bikes - creating instance of Bike everytime release_bike is called
+
   end
+
 
   def dock(bike)
 
-   fail "DockingStationIsFull" unless @bikes.count < 20
+   fail "DockingStationIsFull" if full?
    @bikes << bike
   # if @bike != nil
   #   fail "DockingStationIsFull" # fail "DockingStationIsFull" unless @bike == nil
@@ -25,11 +26,29 @@ attr_reader :bikes  #(bike = @bike)
   #end
  end
 
+private
+def full?
+if @bikes.count == 20
+  true
+else
+  false
+end
+end
+
+  def empty?
+    if @bikes.count == 0
+      true
+    else
+      false
+    end
+
+end
   #def bike
   #  @bike # this is an attribute - read the @bike attribute on an instance
   #end
 
 end
+
 
 #now rspec can work because release_bike has been defined
 

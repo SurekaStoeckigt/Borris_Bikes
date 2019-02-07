@@ -31,7 +31,7 @@ station = DockingStation.new
 bike = Bike.new
 station.dock(bike)
 
-station.release_bike
+#station.release_bike
 #expect(released_bike.working?).to eq(true)
 expect(station.release_bike).to be_working
 end
