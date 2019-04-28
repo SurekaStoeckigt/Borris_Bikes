@@ -2,7 +2,7 @@ require 'docking_station'
 #attr_reader :bike
 
 describe DockingStation do
-attr_reader :bike
+attr_reader :bikes
 
 it {is_expected.to respond_to :release_bike }
 
@@ -79,6 +79,12 @@ it 'returns docked bikes' do
   docking_station = DockingStation.new
   docking_station.dock(bike) #have to dock bike before we can see it
   expect(docking_station.bikes).to include bike
+end
+
+it 'checking that capacity value is' do
+
+  docking_station = DockingStation.new(10)
+  expect(docking_station.capacity).to eq 10
 end
 
 end
